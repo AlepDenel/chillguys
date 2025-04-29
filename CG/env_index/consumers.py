@@ -1,7 +1,7 @@
 from channels.generic.websocket import AsyncWebsocketConsumer
 import json
 
-# Air Quality Consumer
+# Air Quality WebSocket Consumer
 class AirQualityConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         await self.channel_layer.group_add("aqi_updates", self.channel_name)
@@ -11,13 +11,10 @@ class AirQualityConsumer(AsyncWebsocketConsumer):
         await self.channel_layer.group_discard("aqi_updates", self.channel_name)
 
     async def send_aqi_update(self, event):
-        data = event.get("data", {})
+        print("Sending AQI update to client/WebSocket:", event)
         await self.send(text_data=json.dumps(event["data"]))
 
-    async def receive(self, text_data):
-        pass
-
-# Water Quality Consumer
+# Water Quality WebSocket Consumer
 class WaterQualityConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         await self.channel_layer.group_add("wqi_updates", self.channel_name)
@@ -27,8 +24,5 @@ class WaterQualityConsumer(AsyncWebsocketConsumer):
         await self.channel_layer.group_discard("wqi_updates", self.channel_name)
 
     async def send_wqi_update(self, event):
-        data = event.get("data", {})
+        print("Sending WQI update to client/WebSocket:", event)
         await self.send(text_data=json.dumps(event["data"]))
-
-    async def receive(self, text_data):
-        pass

@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
-import AirQualityWebSocket from './AirQualityWebSocket';
-import WaterQualityWebSocket from './WaterQualityWebSocket';
+import AirQualityPolling from './AirQualityPolling';
+import WaterQualityPolling from './WaterQualityPolling';
 
 function App() {
   return (
@@ -11,18 +11,18 @@ function App() {
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundRepeat: 'fixed',
+      backgroundAttachment: 'fixed',
       minHeight: '100vh',
       width: '100%',
       margin: '0',
       padding: '0',
     }}
     >
-      <h1>Smart Environmental Monitoring System</h1>
+      <h1>Sarawak Environmental Monitoring System</h1>
       <p>Real-time air and water quality monitoring</p>
 
-      <AirQualityWebSocket /> {/* Air Quality WebSocket component */}
-      <WaterQualityWebSocket /> {/* Water Quality WebSocket component */}
+      <AirQualityPolling /> {/* Air Quality Polling component */}
+      <WaterQualityPolling /> {/* Water Quality Polling component */}
       
     </div>
   );

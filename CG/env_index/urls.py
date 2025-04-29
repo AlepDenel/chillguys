@@ -2,6 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('aqi/', views.air_quality_index, name='air_quality_index'), # Air Quality WebSocket
-    path('wqi/', views.water_quality_index, name='water_quality_index'), # Water Quality WebSocket
+    path('latest-aqi/', views.latest_aqi, name='latest-aqi'),
+    path('latest-wqi/', views.latest_wqi, name='latest-wqi'),
 ]
