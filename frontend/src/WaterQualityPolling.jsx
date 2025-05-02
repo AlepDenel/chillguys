@@ -6,7 +6,7 @@ const WaterQualityPolling = () => {
     useEffect(() => {
         const fetchWQI = async () => {
             try {
-                const response = await fetch('http://localhost:8000/api/latest-wqi/');
+                const response = await fetch('http://your-app-name.onrender.com/api/latest-wqi/');
                 const data = await response.json();
                 console.log('Fetched WQI:', data);
                 setWaterQualityList(data);
