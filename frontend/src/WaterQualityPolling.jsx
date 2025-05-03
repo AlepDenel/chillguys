@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const baseURL = process.env.REACT_APP_API_BASE_URL;
+const baseURL = 'http://localhost:8000';
 
 const WaterQualityPolling = () => {
     const [waterQualityList, setWaterQualityList] = useState([]);
@@ -8,7 +8,7 @@ const WaterQualityPolling = () => {
     useEffect(() => {
         const fetchWQI = async () => {
             try {
-                const response = await fetch(`${baseURL}/api/latest-wqi/`);
+                const response = fetch(`${baseURL}/api/latest-wqi/`);
                 const data = await response.json();
                 console.log('Fetched WQI:', data);
                 setWaterQualityList(data);

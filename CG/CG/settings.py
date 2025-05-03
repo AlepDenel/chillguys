@@ -28,14 +28,16 @@ SECRET_KEY = 'django-insecure-k0db8vo811gri1yukk=a=#be*41y1dpzfbl*zkzdicp5e#ghtx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default = False, cast = bool)
 
-ALLOWED_HOSTS = ['.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'daphne', # package 1
-    'corsheaders', # package 2
-    'rest_framework', # package 3
+    
+    'channels', # package 1
+    'daphne', # package 2
+    'corsheaders', # package 3
+    'rest_framework', # package 4
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -59,9 +61,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = [
-    "https://chillguys.onrender.com"
-]
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'CG.urls'
 
