@@ -1,0 +1,5 @@
+# .nixpacks
+pkgs.python3
+pkgs.mysql80
+pkgs.mysql80.client
+pkgs.pkg-config
