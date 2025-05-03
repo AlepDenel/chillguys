@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'daphne', # package 2
     'corsheaders', # package 3
     'rest_framework', # package 4
+    'mysql.connector.django', # package 5
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -95,7 +96,7 @@ CHANNEL_LAYERS = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
