@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
+const baseURL = process.env.REACT_APP_API_BASE_URL;
+
 const AirQualityPolling = () => {
     const [airQualityList, setAirQualityList] = useState([]);
 
     useEffect(() => {
         const fetchAQI = async () => {
             try {
-                const response = await fetch('http://your-app-name.onrender.com/api/latest-aqi/');
+                const response = await fetch(`${baseURL}/api/latest-aqi/`);
                 const data = await response.json();
                 console.log('Fetched AQI:', data);
                 setAirQualityList(data);
