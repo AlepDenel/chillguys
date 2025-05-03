@@ -8,7 +8,7 @@ const AirQualityPolling = () => {
     useEffect(() => {
         const fetchAQI = async () => {
             try {
-                const response = fetch(`${baseURL}/api/latest-aqi/`);
+                const response = await fetch(`${baseURL}/api/latest-aqi/`);
                 const data = await response.json();
                 console.log('Fetched AQI:', data);
                 setAirQualityList(data);

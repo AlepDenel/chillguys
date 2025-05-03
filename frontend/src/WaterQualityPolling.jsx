@@ -8,7 +8,7 @@ const WaterQualityPolling = () => {
     useEffect(() => {
         const fetchWQI = async () => {
             try {
-                const response = fetch(`${baseURL}/api/latest-wqi/`);
+                const response = await fetch(`${baseURL}/api/latest-wqi/`);
                 const data = await response.json();
                 console.log('Fetched WQI:', data);
                 setWaterQualityList(data);
