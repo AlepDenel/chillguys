@@ -1,12 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './style.css';
-
-import Home from './Home';
+import { Info, HelpCircle } from 'lucide-react';
+import Home from './home.jsx';
 import AboutUs from './AboutUs';
 import FAQ from './FAQ';
-import AirQualityPolling from './AirQualityPolling';
-import WaterQualityPolling from './WaterQualityPolling';
+import './App.css';
 
 function App() {
   return (
@@ -14,7 +12,7 @@ function App() {
       <div
         className="container"
         style={{
-          backgroundImage: `url('/sibu-bg.jpg')`,
+          backgroundImage: "url('/sibu-bg.jpg')",
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -25,12 +23,17 @@ function App() {
           padding: '0',
         }}
       >
-        <nav>
-          <ul style={{ display: 'flex', gap: '20px', listStyle: 'none', padding: '10px' }}>
-            <li><Link to="/" style={{ color: 'white' }}>Home</Link></li>
-            <li><Link to="/about" style={{ color: 'white' }}>About Us</Link></li>
-            <li><Link to="/faq" style={{ color: 'white' }}>FAQ</Link></li>
-          </ul>
+        <nav style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '20px',
+          padding: '15px',
+          backgroundColor: '#2c3e50',
+          color: 'white'
+        }}>
+          <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Home</Link>
+          <Link to="/about" style={{ color: 'white', textDecoration: 'none' }}>About Us</Link>
+          <Link to="/faq" style={{ color: 'white', textDecoration: 'none' }}>FAQ</Link>
         </nav>
 
         <Routes>
