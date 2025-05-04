@@ -101,14 +101,18 @@ CHANNEL_LAYERS = {
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASE_URL = 'mysql://root:QEWXrswsrgFpwQqDkZeCmmWAiqMipbZA@mysql.railway.internal:3306/railway'
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default=DATABASE_URL,
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'env_db',
+        'USER': 'root',
+        'PASSWORD': 'AcD_24090018',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        }
+    }
 }
 
 # Password validation
@@ -159,6 +163,6 @@ WHITENOISE_AUTOREFRESH = False
 WHITENOISE_USE_FINDERS = True
 
 # Debugging
-print("=== ACTUAL DB CONFIG ===")
-print("HOST:", os.environ.get('MYSQLHOST'))  # Check if this matches Railway’s host
-print("DATABASE:", os.environ.get('MYSQLDATABASE'))
+# print("=== ACTUAL DB CONFIG ===")
+# print("HOST:", os.environ.get('MYSQLHOST'))  # Check if this matches Railway’s host
+# print("DATABASE:", os.environ.get('MYSQLDATABASE'))
