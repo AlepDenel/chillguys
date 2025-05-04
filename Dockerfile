@@ -1,13 +1,12 @@
 FROM python:3.10-slim
 
-# Install MariaDB equivalents of MySQL dependencies
+# Install MariaDB/MySQL dependencies (Debian Bookworm compatible)
 RUN apt-get update && \
     apt-get install -y \
     gcc \
-    default-libmariadb-dev \
+    libmariadb-dev \
     pkg-config \
     mariadb-common \
-    libmariadb-dev-compat \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
