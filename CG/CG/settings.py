@@ -102,14 +102,13 @@ CHANNEL_LAYERS = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mysql.connector.django',
-        'NAME': os.environ.get('DB_NAME', 'railway'),
-        'USER': os.environ.get('DB_USER', 'root'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
-        'HOST': os.environ.get('DB_HOST', 'mysql.railway.internal'),
-        'PORT': os.environ.get('DB_PORT', '3306'),
+        'ENGINE': 'django.db.backends.mysql',  # Use this instead of mysql.connector.django (more reliable)
+        'NAME': os.environ.get('MYSQLDATABASE', 'env_db'),  # Railway uses MYSQLDATABASE, not DB_NAME
+        'USER': os.environ.get('MYSQLUSER', 'root'),
+        'PASSWORD': os.environ.get('MYSQLPASSWORD', ''),
+        'HOST': os.environ.get('MYSQLHOST', 'localhost'),  # <-- THIS MUST BE RAILWAY'S MYSQL HOST
+        'PORT': os.environ.get('MYSQLPORT', '3306'),
         'OPTIONS': {
-            'use_pure': True,
             'charset': 'utf8mb4',
         }
     }
@@ -162,7 +161,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 WHITENOISE_AUTOREFRESH = False
 WHITENOISE_USE_FINDERS = True
 
-# Debug Confiig
-print("=== DB CONFIG ===")
-print("Host:", os.environ.get('DB_HOST'))
-print("Database:", os.environ.get('DB_NAME'))
+# Debugging
+print("=== ACTUAL DB CONFIG ===")
+print("HOST:", os.environ.get('MYSQLHOST'))  # Check if this matches Railway’s host
+print("DATABASE:", os.environ.get('MYSQLDATABASE'))
