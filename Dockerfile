@@ -7,4 +7,4 @@ RUN pip install --upgrade pip && \
     pip install -r CG/requirements.txt
 
 WORKDIR /app/CG
-CMD ["gunicorn", "CG.wsgi:application", "--bind", "0.0.0.0:$PORT"]
+CMD ["sh", "-c", "gunicorn CG.wsgi:application --bind 0.0.0.0:${PORT:-8000}"]
