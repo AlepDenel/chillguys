@@ -1,13 +1,13 @@
 FROM python:3.10-slim
 
-# Install EXACT MySQL dependencies
+# Install MariaDB equivalents of MySQL dependencies
 RUN apt-get update && \
     apt-get install -y \
     gcc \
-    default-libmysqlclient-dev \
+    default-libmariadb-dev \
     pkg-config \
-    mysql-common \
-    libmysqlclient-dev \
+    mariadb-common \
+    libmariadb-dev-compat \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
