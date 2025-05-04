@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+import dj_database_url
 import sys
 
 load_dotenv()
@@ -100,18 +101,14 @@ CHANNEL_LAYERS = {
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+DATABASE_URL = 'mysql://root:QEWXrswsrgFpwQqDkZeCmmWAiqMipbZA@mysql.railway.internal:3306/railway'
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Use this instead of mysql.connector.django (more reliable)
-        'NAME': os.environ.get('MYSQLDATABASE', 'env_db'),  # Railway uses MYSQLDATABASE, not DB_NAME
-        'USER': os.environ.get('MYSQLUSER', 'root'),
-        'PASSWORD': os.environ.get('MYSQLPASSWORD', ''),
-        'HOST': os.environ.get('MYSQLHOST', 'localhost'),  # <-- THIS MUST BE RAILWAY'S MYSQL HOST
-        'PORT': os.environ.get('MYSQLPORT', '3306'),
-        'OPTIONS': {
-            'charset': 'utf8mb4',
-        }
-    }
+    'default': dj_database_url.config(
+        default=DATABASE_URL,
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
 
 # Password validation
