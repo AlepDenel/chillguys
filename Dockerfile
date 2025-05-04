@@ -1,20 +1,12 @@
 FROM python:3.10-slim
 
-# Install EXACT MySQL/MariaDB dependencies
-RUN apt-get update && \
-    apt-get install -y \
-    gcc \
-    python3-dev \
-    default-libmariadb-dev \
-    mariadb-client \
-    && rm -rf /var/lib/apt/lists/*
-
+# Install ONLY Python dependencies
 WORKDIR /app
 COPY . .
 
-# Install Python packages
+# Install mysqlclient first using binary wheel
 RUN pip install --upgrade pip && \
-    pip install mysqlclient==2.1.1 && \
+    pip install mysqlclient==2.1.1 --only-binary=:all: && \
     pip install -r CG/requirements.txt
 
 # Start command
