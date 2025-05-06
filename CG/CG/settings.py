@@ -31,7 +31,7 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '.railway.app',
+    '.up.railway.app',
     '.onrender.com',
     'chillguys-backend.up.railway.app/'  # hosting test
 ]
