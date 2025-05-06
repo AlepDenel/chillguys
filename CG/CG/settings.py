@@ -101,7 +101,7 @@ CHANNEL_LAYERS = {
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASE_URL = 'mysql://root:QEWXrswsrgFpwQqDkZeCmmWAiqMipbZA@mysql.railway.internal:3306/railway'
+DATABASE_URL = 'mysql://root:QEWXrswsrgFpwQqDkZeCmmWAiqMipbZA@gondola.proxy.rlwy.net:35299/railway'
 
 DATABASES = {
     'default': dj_database_url.config(
