@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '.railway.app',
     '.onrender.com',
-    'chillguys-backend.up.railway.app/'  # current railway app url
+    'chillguys-backend.up.railway.app/'  # hosting test
 ]
 
 if DEBUG:

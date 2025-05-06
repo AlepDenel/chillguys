@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const baseURL = 'http://localhost:8000';
+const baseURL = process.env.REACT_APP_API_BASE_URL;
 
 const WaterQualityPolling = () => {
     const [waterQualityList, setWaterQualityList] = useState([]);

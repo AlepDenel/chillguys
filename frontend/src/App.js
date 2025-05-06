@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Info, HelpCircle } from 'lucide-react';
+// import { Info, HelpCircle } from 'lucide-react';  // error pointed this out as unused
 import Home from './home.jsx';
 import AboutUs from './AboutUs';
 import FAQ from './FAQ';
