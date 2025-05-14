@@ -4,7 +4,7 @@ import WaterQualityPolling from './WaterQualityPolling';
 
 function Home() {
   return (
-    <div>
+    <div className="glass-box">
       <h1>Sarawak Environmental Monitoring System</h1>
       <p>Real-time air and water quality monitoring</p>
       <AirQualityPolling />
