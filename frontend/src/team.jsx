@@ -1,22 +1,4 @@
 export default function Team() {
-  const teamMembers = [
-    {
-      name: "Aleef Danial",
-      role: "Backend Developer",
-      bio: "Specializes in Django and database architecture"
-    },
-    {
-      name: "Azariena",
-      role: "Frontend Developer",
-      bio: "Focuses on React and UI/UX design"
-	},
-	{
-      name: "Nur Zafirah Hanan",
-      role: "Midend Developer",
-      bio: "Manages API requests, authentication, logic"
-    },
-  ];
-
   return (
     <div className="glass-box">
     <h2>Our Team</h2>
