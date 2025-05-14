@@ -23,11 +23,13 @@ const AirQualityPolling = () => {
     }, []);
 
     return (
-        <div className="databox">
+        <div className="glass-box">
             <h2>Air Quality Index</h2>
             {airQualityList.length > 0 ? (
                 airQualityList.map((aqi, index) => (
-                    <div key={index} style={{ marginBottom: '20px', padding: '10px', backgroundColor: '#eef', borderRadius: '8px' }}>
+                    <div
+                        key={index}
+                        className={`databox ${aqi.status.toLowerCase().replace(/\s/g, '-')}`}>
                         <p><strong>Location:</strong> {aqi.location}</p>
                         <p><strong>AQI:</strong> {aqi.aqi}</p>
                         <p><strong>Status:</strong> {aqi.status}</p>
