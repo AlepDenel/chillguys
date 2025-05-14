@@ -23,11 +23,13 @@ const WaterQualityPolling = () => {
     }, []);
 
     return (
-        <div className="databox">
+        <div className="glass-box">
             <h2>Water Quality Index</h2>
             {waterQualityList.length > 0 ? (
                 waterQualityList.map((wqi, index) => (
-                    <div key={index} style={{ marginBottom: '20px', padding: '10px', backgroundColor: '#efe', borderRadius: '8px' }}>
+                    <div
+                        key={index}
+                        className={`databox ${wqi.status.toLowerCase().replace(/\s/g, '-')}`}>
                         <p><strong>Station:</strong> {wqi.station}</p>
                         <p><strong>WQI:</strong> {wqi.wqi}</p>
                         <p><strong>Status:</strong> {wqi.status}</p>
