@@ -1,0 +1,124 @@
+.faq-container {
+    padding: 40px 24px;
+    max-width: 1000px;
+    margin: auto;
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .faq-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75); /* adjustable dim */
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .faq-container h1 {
+    font-size: 4.6rem;
+    font-weight: 800;
+    margin-top: 80px;
+    margin-bottom: 111px;
+  }
+  
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+  }
+  
+  .faq-item {
+    width: 95vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    border-bottom: 1px solid #919191;
+    padding-bottom: 16px;
+  }
+  
+  .faq-question {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.52rem;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    outline: none;
+    padding: 0; /* Remove default spacing */
+    transition: color 0.3s ease;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .faq-question:hover {
+    color: #3cb371;
+  }
+  
+  .faq-question.active {
+    color: #90ee90;
+  }
+  
+  /* Use wrapper to handle sliding */
+  .faq-answer-wrapper {
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  
+  /* Remove max-height from the answer itself */
+  .faq-answer {
+    padding-top: 9px;
+    font-size: 1.16rem;
+    color: #e0e0e0;
+    letter-spacing: 0.44px;
+    max-width: 1600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .faq-answer p {
+    margin: 0 0 10px 0;
+  }
+  
+  /* Help box styles */
+  .faq-help-box {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    margin: 210px auto 200px auto;
+    padding: 0 10px;
+    text-align: center;
+  }
+  
+  .faq-help-box.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .faq-help-box h2 {
+    font-size: 1.7rem;
+    color: #3cb371;
+    margin-bottom: 15px;
+  }
+  
+  .faq-help-box p {
+    font-size: 1.2rem;
+    color: #dddddd;
+    line-height: 1.5;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .faq-help-box a {
+    color: #3cb371;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .faq-help-box a:hover {
+    color: #66e095;
+  }

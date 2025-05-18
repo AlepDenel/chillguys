@@ -1,0 +1,37 @@
+.available-locations {
+  flex: 1;
+  max-width: 400px;
+  padding: 10px;
+  color: white;
+}
+
+.available-locations h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: left;
+  color: #3cb371;
+}
+
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-auto-rows: min-content;
+    gap: 12px;
+    max-height: 260px; /* enough to show 4 rows */
+    overflow-y: auto;
+    padding-right: 8px;
+  }
+
+.location-card {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.95rem;
+  border: 1px solid #3cb37144;
+  transition: background 0.3s ease;
+}
+
+.location-card:hover {
+  background-color: rgba(60, 179, 113, 0.2);
+}

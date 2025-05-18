@@ -1,0 +1,232 @@
+.about-container {
+  padding: 10px 20px;
+  max-width: 1300px;
+  margin: auto;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.aboutus-background {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.aboutus-video {
+  position: absolute;
+  will-change: transform;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.aboutus-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.55); /* dim effect */
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Fade animation */
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Title */
+.about-title {
+  font-size: 4.1rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 11px;
+}
+.about-title .sarawak {
+  color: yellow;
+}
+.about-title .sense {
+  color: red;
+}
+
+/* Paragraph */
+.about-paragraph {
+  text-align: center;
+  font-size: 1.4rem;
+  letter-spacing: 0.37px;
+  line-height: 1.55;
+  margin: 18px auto;
+  max-width: 1450px;
+}
+
+/* Image stack */
+.about-images-stack {
+  position: relative;
+  width: 100%;
+  max-width: 610px;
+  margin: 1px auto 0;
+}
+.flag-layer {           /*aboutss1.png*/
+  width: 100%;
+  border-radius: 12px;
+  opacity: 0.42;
+}
+.figure-layer {         /*aboutss2.png*/
+  position: absolute;
+  top: 17%;
+  left: 19%;
+  width: 60%;
+}
+
+/* Wrapper for two columns */
+.who-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+/* LEFT: Text side */
+.who-text {
+  flex: 2;
+}
+
+.who-title {
+  font-size: 3.2rem; /* ← Adjust this to resize title */
+  text-align: left;
+  color: #3cb371;
+  margin-top: 1px;
+  margin-bottom: -8px;
+}
+
+.who-intro {
+  font-size: 1.4rem;  /* ← Adjust intro paragraph size */
+  letter-spacing: 0.37px;
+  text-align: left;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.member-info-block {
+  font-size: 1.4rem;
+  letter-spacing: 0.36px;
+  text-align: left;
+  line-height: 1.5;
+  margin-top: 70px;
+  margin-bottom: 100px;
+}
+
+.member-info-block p {
+  margin-bottom: 30px;
+}
+
+.bold-name {
+  font-weight: bold;
+  font-size: 2.2rem;  /* ← Resize names */
+  color: #ffffff;
+}
+
+/* RIGHT: Image side */
+.who-images {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 43px;
+  transform: translateX(30px);
+}
+
+.member-stack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.member-photo {
+  width: 210px; /* freely change size */
+  border-radius: 0;
+  object-fit: cover;
+  margin-bottom: 11px;
+}
+
+.role-icon {
+  width: 78px;
+  position: absolute;
+  bottom: -20px;
+  padding: 0px;
+}
+
+/* Mission & Vision */
+.mission-vision-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 80px;
+}
+@media (min-width: 768px) {
+  .mission-vision-section {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.mission-box,
+.vision-box {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 60px;
+  border-radius: 12px;
+  margin-bottom: 70px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+.mv-icon {
+  width: 110px;
+  margin-bottom: 8px;
+}
+.mission-box h3,
+.vision-box h3 {
+  font-size: 2.3rem;
+  color: #3cb371;
+  margin-bottom: 21px;
+}
+.mission-box p,
+.vision-box p {
+  font-size: 1.4rem;
+  letter-spacing: 0.37px;
+  line-height: 1.5;
+  color: #dddddd;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: float 3.2s ease-in-out infinite;
+}
+
+@media (max-width: 1300px) {
+  .aboutus-video {
+    display: none;
+  }
+
+  .aboutus-background {
+    background: linear-gradient(to bottom right, #03025e, #01000ed1);
+    background-size: cover;
+    background-position: center;
+  }
+}

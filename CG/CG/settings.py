@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '.up.railway.app',
     '.onrender.com',
-    'chillguys-backend.up.railway.app/'  # hosting test
+    'chillguys-backend.up.railway.app/'
 ]
 
 if DEBUG:
@@ -108,10 +108,11 @@ DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL'),
         engine='mysql.connector.django',
-        conn_max_age=600,
-        conn_health_checks=True,
+        conn_max_age = 600,
+        conn_health_checks = True,
     )
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

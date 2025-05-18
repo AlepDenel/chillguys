@@ -10,7 +10,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         stations = [
-            # Available stations in Sarawak
+            # Sarawak stations continuously monitored
             "Sg. Sarawak",
             "Sg. Btg. Sadong"
         ]
@@ -59,9 +59,9 @@ class Command(BaseCommand):
                 
     def classify_wqi_status(self, wqi):
         """Classify WQI status based on value"""
-        if wqi >= 80:
+        if wqi >= 81:
             return "Clean"
         elif wqi >= 60:
             return "Slightly Polluted"
         else:
-            return "Polluted"
+            return "Contaminated"

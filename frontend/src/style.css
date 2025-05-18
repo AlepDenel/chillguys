@@ -1,215 +1,67 @@
-/* General Styling */
 body {
   font-family: 'Poppins', sans-serif;
   text-align: center;
-background-size: cover;
   margin: 0;
   padding: 0;
-}
-
-.landing-content h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-.enter-button {
-  margin-top: 30px;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  background-color: #1e90ff;
+  background-color: #1a1a1a;
+  background-size: cover;
   color: white;
-  font-size: 1.1em;
-  cursor: pointer;
-  transition: background 0.3s ease;
 }
 
-.enter-button:hover {
-  background-color: #0f78d4;
-}
-
-
-.enter-button {
-  margin-top: 30px;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  background-color: #a0bcd7;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50;
+  padding: 12px 20px;
   color: white;
-  font-size: 1.1em;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.enter-button:hover {
-  background-color: #0f78d4;
-}
-
-/* Container */
-.container {
-  background: transparent;
-  position: relative;
-  z-index: 1;
-}
-
-/* Header */
-h1 {
-  color: #fcf3f3;
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-
-p {
-  color: #f4f0f0;
-}
-
-/* Data Boxes */
-.data-box {
+.logo-section {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  background: #e0f7fa;
-  border-radius: 10px;
-  font-size: 1.2em;
-  margin-top: 20px;
-  transition: background 0.5s ease-in-out;
 }
 
-/* Icons */
-.icon {
-  width: 50px;
-  height: 50px;
+.logo {
+  height: 41px;
 }
 
-/* Dynamic Color Updates */
-.good {
-  background: #3cb371 !important; /* Green for good quality */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
 }
 
-.moderate {
-  background: #ffd700 !important; /* Yellow for moderate quality */
-}
-
-.unhealthy {
-  background: #ffa500 !important; /* Orange for unhealthy quality */
-}
-
-.very-unhealthy {
-  background: #ff4500 !important; /* Red-orange for very unhealthy */
-}
-
-.hazardous {
-  background: #8b0000 !important; /* Dark red for hazardous */
-}
-
-.unavailable {
-  background: #888888 !important; /* Gray for missing or unknown data */
-}
-
-.dashboard {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.dashboard-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  margin: 30px 0;
-}
-
-.card {
-  padding: 20px;
-  border-radius: 12px;
+.nav-links li a {
   color: white;
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.card.good {
-  background-color: #3cb371;
-}
-
-.card.moderate {
-  background-color: #ffd700;
-  color: black;
-}
-
-.card.unhealthy {
-  background-color: #ffa500;
-  color: black;
-}
-
-.card.very-unhealthy {
-  background-color: #ff4500;
-}
-
-.card.hazardous {
-  background-color: #8b0000;
-}
-
-.card.unavailable {
-  background-color: gray;
-}
-
-.summary {
-  margin-top: 20px;
+  text-decoration: none;
+  font-weight: 600;
   font-size: 1rem;
-  color: white;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: translateY(-10px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-.glass-box {
-  background: rgba(255, 255, 255, 0.1); /* soft white glassy background */
-  border-radius: 16px;
-  padding: 30px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  max-width: 800px;
-  margin: 40px auto;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-.aqi-card {
-  margin-bottom: 20px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  text-align: left;
-  color: white;
-  transition: transform 0.3s ease;
+.nav-links li a:hover {
+  text-decoration: underline;
 }
 
-.aqi-card:hover {
-  transform: translateY(-4px);
-}
-.video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: -1;
+.lang-btn {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
 }
 
-.video-background video {
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
+.lang-btn option {
+  color: black;
+  background-color: white;
+  padding: 5px;
 }

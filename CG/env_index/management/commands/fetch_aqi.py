@@ -15,17 +15,18 @@ class Command(BaseCommand):
 
         # AQICN Station IDs
         locations = {
-            "@2610": "Kuching, Sarawak, Malaysia",
-            "@2612": "Miri, Sarawak, Malaysia",
-            "@2613": "Bintulu, Sarawak, Malaysia",
-            "@2614": "Sibu, Sarawak, Malaysia",
-            "@2615": "Samarahan, Sarawak, Malaysia",
-            "@2616": "Sri Aman, Sarawak, Malaysia",
-            "@2617": "Sarikei, Sarawak, Malaysia",
-            "@2618": "Kapit, Sarawak, Malaysia",
-            "@2619": "Limbang, Sarawak, Malaysia",
-            "@9501": "Mukah, Sarawak, Malaysia",
-            "@2620": "Samalaju, Sarawak, Malaysia",
+            "@2614": "Sibu",
+            "@2610": "Kuching",
+            "@2612": "Miri",
+            "@2613": "Bintulu",
+            "@2615": "Samarahan",
+            "@2616": "Sri Aman",
+            "@2617": "Sarikei",
+            "@2618": "Kapit",
+            "@2619": "Limbang",
+            "@9501": "Mukah",
+            "@2620": "Samalaju",
+            "@2608": "ILP Miri",
         }
 
         # Malaysia timezone (UTC+8)
@@ -111,7 +112,7 @@ class Command(BaseCommand):
         elif aqi <= 100:
             return "Moderate"
         elif aqi <= 150:
-            return "Unhealthy for Sensitive Groups"
+            return "Risky"
         elif aqi <= 200:
             return "Unhealthy"
         elif aqi <= 300:

@@ -1,0 +1,595 @@
+.home-container {
+  padding: 40px 30px;
+  color: white;
+  max-width: 1480px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45); /* ⬅️ 45% black dim */
+  z-index: 1;
+}
+
+.glass-section {
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 0 14px rgba(60, 179, 113, 0.15);
+  backdrop-filter: blur(4px);
+  margin-bottom: 30px;
+}
+
+/* Header and Buttons Row */
+.home-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.home-title h1 {
+  font-size: 2.7rem;
+  font-weight: bold;
+  margin: 0;
+  text-align: left;
+}
+
+.home-title h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-top: 8px;
+  text-align: left;
+}
+
+/* AQI and WQI buttons */
+.home-buttons {
+  display: flex;
+  gap: 19px;
+}
+
+.aqi-btn,
+.wqi-btn {
+  flex: 2;
+  flex-wrap: nowrap;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.65px;
+  border: none;
+  padding: 11px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.aqi-btn.active,
+.wqi-btn.active {
+  background-color: #4de189;
+  color: black;
+}
+
+.aqi-btn:hover,
+.wqi-btn:hover {
+  background-color: #2e8b57;
+  color: white;
+}
+
+/* Main content grid layout (locations + data side-by-side) */
+.main-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30.9px;
+  margin-top: 40px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.locations-column {
+  flex: 1;
+  min-width: 260px;
+  max-width: 100%;
+  min-height: 330px;
+  max-height: 100%;
+}
+
+.data-column {
+  flex: 4;
+  min-width: 300px;
+  max-width: 100%;
+}
+
+/* Locations section */
+.data-column h2,
+.locations-column h2 {
+  text-align: left;
+  margin-bottom: 16px;
+  font-size: 1.6rem;
+  color: #3cb371;
+}
+
+/* Location grid styling (3 columns, 4 rows, scrollable) */
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(2); /* 3 per row */
+  grid-auto-rows: min-content;
+  gap: 12px;
+  max-height: 245px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* Location buttons */
+.location-btn {
+  background-color: #222;
+  border: 1px solid #3cb371;
+  color: white;
+  padding: 9px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-size: 1.01rem;
+  letter-spacing: 0.66px;
+}
+
+.location-btn.selected {
+  background-color: #3cb371;
+  color: black;
+}
+
+.location-btn:hover {
+  background-color: #3cb37199;
+}
+
+/* Databox styling (AQI/WQI info) */
+.databox {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid #3cb371;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+  line-height: 1.6;
+  font-size: 1rem;
+  letter-spacing: 0.45px;
+}
+
+.databox p {
+  margin: 4px 0;
+}
+
+
+/* Status Dashboard Grid (Phase 1) */
+.status-dashboard {
+  max-width: 1760px;
+}
+
+.status-dashboard h2 {  /*AQI/WQI Dashboard*/
+  text-align: left;
+  font-size: 1.6rem;
+  color: #4de189;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  justify-items: center;
+}
+
+.status-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 22px;
+  padding: 15px;
+  width: 82%;
+  max-width: 290px;
+  height: 162px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.status-item:hover {
+  transform: scale(1.06);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  background-color: #3cb37199;
+  color: white;
+}
+
+.status-item:active {
+  transform: scale(0.96); /* 👈 small press animation */
+}
+
+.status-expanded-two-column {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+  padding: 16px 10px;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  max-width: 100%;
+  animation: fadeInUp 0.3s ease;
+}
+
+.expanded-card-left {
+  flex: 1;
+  min-width: 260px;
+  max-width: 320px;
+  margin-left: 0px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.expanded-card-right {
+  flex: 2;
+  min-width: 300px;
+  width: 1100px;
+  max-width: 1300px;
+  padding: 10px 15px;
+  color: white;
+  font-size: 1.2rem;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* 👈 This ensures left alignment */
+  text-align: left;        /* 👈 This makes all lines align to the left */
+  gap: 0px;               /* Optional: adds spacing between items */
+}
+
+.expanded-card-right p {
+  margin-top: 0px;
+  line-height: 1.25;
+  letter-spacing: 0.4px;
+}
+
+.expanded-card-right button.go-back-btn {
+  margin-top: 2px;
+  padding: 10px 20px;
+  background-color: #4de189;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.expanded-card-right button.go-back-btn:hover {
+  background-color: #2e8b57;
+  color: white;
+}
+
+.status-label {  /* GOOD, MODERATE, etc. */
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+.shape-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  width: 63px;
+  height: 63px;
+}
+
+.shape-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.shape-count {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 1.32rem;
+  color: rgb(0, 0, 0);
+}
+
+.status-range {  /* 0-50, 51-100, etc. */
+  font-size: 1.08rem;
+  letter-spacing: 0.4px;
+  color: #ccc;
+}
+
+.status-locations {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 4px;
+}
+
+
+/* === Animation Keyframes === */
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; transform: scale(0.95); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+  0% { transform: translateX(40px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  0% { transform: translateX(-40px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* === Fade out dashboard cards when one is selected === */
+.status-grid .status-item.fading-out {
+  animation: fadeOut 0.4s ease forwards;
+}
+
+/* === Selected card slides left */
+.expanded-card-left {
+  animation: slideInLeft 0.6s ease forwards;
+}
+
+/* === Text box appears sliding in from right */
+.expanded-card-right {
+  animation: slideInRight 0.6s ease forwards;
+}
+
+
+/* AQI/WQI Data Visualization Panel */
+.visual-box {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 220px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 18px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  border: 1px solid #3cb37199;
+  margin-bottom: 7.8px;
+  overflow: auto;
+  flex-shrink: 0;
+}
+
+.visual-shape {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin-right: 25px;
+}
+
+.visual-shape img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* Special handling for Moderate AQI triangle shape */
+.moderate-shape .visual-content {
+  color: #222; /* dark text */
+}
+
+.moderate-shape .visual-label {
+  color: #222 !important;
+  margin-top: 50px;
+}
+
+.moderate-shape .visual-value {
+  color: #222 !important;
+  margin-top: 12px;
+}
+
+.moderate-shape .visual-status {
+  color: #222 !important;
+  text-shadow: none;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.visual-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.visual-label {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  margin-top: 23px;
+  color: rgb(255, 255, 255);
+}
+
+.visual-value {
+  font-size: 4.2rem;
+  color: rgb(255, 255, 255);
+}
+
+.visual-status {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.visual-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.visual-top-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  color: #ccc;
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+}
+
+.visual-metrics-group {
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.metric-block {
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.metric-block img {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 4px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.metric-label {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 4px;
+  letter-spacing: 1.2px;
+}
+
+.metric-value {
+  font-size: 1.29rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.visual-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.location-name {
+  font-weight: bold;
+  font-size: 2.2rem;
+  color: #33a365;
+  letter-spacing: 0.6px;
+}
+
+.data-credit,
+.data-warning {
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #aaa;
+}
+
+.data-credit img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin-left: 4px;
+}
+
+.visual-top-line,
+.metric-label,
+.status-label {
+  white-space: wrap;       /* Prevent line breaks */
+  overflow: auto;          /* Hide overflow */
+  text-overflow: ellipsis;
+}
+
+/* Responsive fix for shrinking windows */
+@media (max-width: 100px) {
+  .main-grid {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .locations-column,
+  .data-column {
+    flex: 1 1 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .status-expanded-two-column {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .expanded-card-left,
+  .expanded-card-right {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 10px 12px;
+    box-sizing: border-box;
+  }
+
+  .expanded-card-right {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .visual-box {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .visual-top-line {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .visual-metrics-group {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
