@@ -200,7 +200,7 @@ const Home = () => {
       </div>
     ) : (
       <div className="data-warning">
-        ⚠️ Warning: the WQI data is <strong>FAKE!</strong>
+        ⚠️ Warning: the WQI data may be <strong>inaccurate!</strong>
                     </div>
                     )}
                 </div>

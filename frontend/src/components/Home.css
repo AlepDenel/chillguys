@@ -7,6 +7,11 @@
   z-index: 2;
 }
 
+.home-background {
+  position: relative;
+  min-height: 100vh;
+}
+
 .background-overlay {
   position: absolute;
   top: 0;
