@@ -1,2 +1,2 @@
 # chillguys
-Currently on development and testing.
+Just an app for monitoring weather and water.
